@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body{
+    width:100%;
+    height:500px;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    position:relative;
+    width:240px;
+    height:350px;
+    border-radius:10px;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+
+   
+    
+}
+h4{
+    position:absolute;
+    top:100px;
+    
+
+}
+.wave1{
+    width:320px;
+    height:261px;
+     
+    animation: spin 5s infinite linear;
+    background-color:#b3edff;
+    position:absolute;
+    bottom:-100px;
+    
+    
+    border-radius: 50%;
+    align-items: center;
+   
+}
+.loc-time{
+    position:absolute;
+    top:140px;
+
+
+}
+.temp{
+    position:absolute;
+    top:120px;
+}
+.sun{
+    position:absolute;
+    top:40px;
+    animation:sunzoom 3s infinite linear alternate;
+}
+.wave2{
+    width:230px;
+    height:289px;
+    align-items: center;
+    background-color:#b3eefe;
+    position:absolute;
+    bottom:-100px;
+   
+    animation: spin 5s infinite linear;
+    border-radius: 50%;
+}
+   
+
+.wave3{
+    width:290px;
+    height:300px;
+    animation: spin 5s infinite linear;
+    align-items: center;
+    background-color:#cdf4fe;
+    position:absolute;
+    bottom:-100px;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+
+@keyframes sunzoom {
+    from {transform:scale(0.8);}
+    to {transform:scale(1.2);}
+}
+@-moz-keyframes sunzoom {
+    from { -moz-transform:scale(0.8); }
+    to { -moz-transform: scale(1.2); }
+}
+@-webkit-keyframes sunzoom {
+    from { -webkit-transform: scale(0.8); }
+    to { -webkit-transform: scale(1.2); }
+}
+

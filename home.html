@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weather Forecase</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="./home.css"> -->
+        <style>
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body{
+    width:100%;
+    height:500px;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main{
+    position:relative;
+    width:240px;
+    height:350px;
+    border-radius:10px;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+
+   
+    
+}
+h4{
+    position:absolute;
+    top:100px;
+    
+
+}
+.wave1{
+    width:320px;
+    height:261px;
+     
+    animation: spin 5s infinite linear;
+    background-color:#b3edff;
+    position:absolute;
+    bottom:-100px;
+    
+    
+    border-radius: 50%;
+    align-items: center;
+   
+}
+.loc-time{
+    position:absolute;
+    top:140px;
+
+
+}
+.temp{
+    position:absolute;
+    top:120px;
+}
+.sun{
+    position:absolute;
+    top:40px;
+    animation:sunzoom 3s infinite linear alternate;
+}
+.wave2{
+    width:230px;
+    height:289px;
+    align-items: center;
+    background-color:#b3eefe;
+    position:absolute;
+    bottom:-100px;
+   
+    animation: spin 5s infinite linear;
+    border-radius: 50%;
+}
+   
+
+.wave3{
+    width:290px;
+    height:300px;
+    animation: spin 5s infinite linear;
+    align-items: center;
+    background-color:#cdf4fe;
+    position:absolute;
+    bottom:-100px;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+
+@keyframes sunzoom {
+    from {transform:scale(0.8);}
+    to {transform:scale(1.2);}
+}
+@-moz-keyframes sunzoom {
+    from { -moz-transform:scale(0.8); }
+    to { -moz-transform: scale(1.2); }
+}
+@-webkit-keyframes sunzoom {
+    from { -webkit-transform: scale(0.8); }
+    to { -webkit-transform: scale(1.2); }
+}
+
+
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- <script src="" async defer></script> -->
+
+        <div class="main">
+            <div class="sun"><i class="fas fa-sun" style="color: #ffcc00;font-size:xx-large;font-weight:bolder"></i></div>
+            <h4 class="loc"><i class="fas fa-street-view"></i>  {%location%}, {%country%}</h4>
+            <h6 class="loc-time" id="loc-time-disp">wed|oct 25|1:49Am</h6>
+
+            <h6 class="temp">{%temp%} &deg; C</h6>
+            <div class="wave3"></div>
+            <div class="wave2"></div>
+            <div class="wave1"></div>
+        </div>
+
+
+       
+    </body>
+
+    <script>
+        
+            const valDay = new Date().getDay();
+            alert("Today's date is " + valDay);
+            var weekDays = new Array( "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun");
+            const valDate = new Date().getDate();
+          
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June","July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            const valMonth = new Date().getMonth();
+            var period = 'AM';
+            const currHr = new Date().getHours() ;
+            const currMin = new Date().getMinutes(); 
+            if (currHr >= 0 && currHr < 11){
+               
+                period = 'AM'
+            }
+            else{
+                period = 'PM'
+            }
+            const currTime = currHr +':'+ new Date().getMinutes();
+            document.getElementById('loc-time-disp').innerHTML = weekDays[valDay-1] + '|' + valDate + '' + monthNames[valMonth] + '|' + currTime + ''+ period;
+    </script>
+    
+</html>
